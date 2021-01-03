@@ -31,7 +31,6 @@ export default class Client {
 	// Allowed events to be emitted to socket client
 	static ALLOWED_EVENTS = [
 		"ready",
-		"loginError",
 		"friendList",
 		"friendConnect",
 		"friendDisconnect",
@@ -114,6 +113,10 @@ export default class Client {
 				this.emit("transformiceDisconnect");
 			});
 
+			this.transformice.on("loginError", (...args) => {
+				socket.emit("loginError", args);
+			});
+
 			// if connection error, emit disconnection
 			this.transformice.on("connectionError", (err) => {
 				Logger.log(err);
@@ -143,6 +146,10 @@ export default class Client {
 			for (const channel of this.transformice.channels) socket.emit("channelJoin", [channel]);
 			// DON'T REMOVE THE flatten AS YOU MIGHT EMITS YOUR TRANSFORMICE TOKEN TO THE CLIENT
 			socket.emit("roomChange", [flatten(this.transformice.room, { client: false })]);
+		} else {
+			this.transformice.on("loginError", (...args) => {
+				socket.emit("loginError", args);
+			});
 		}
 	}
 
