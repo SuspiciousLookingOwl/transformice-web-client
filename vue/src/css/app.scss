@@ -1,0 +1,43 @@
+// app global css in SCSS form
+
+html,
+body {
+  height: 100%;
+  word-break: break-word;
+}
+
+.grey-out {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff00;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4C4C4C;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.q-list--dark,
+.q-item--dark {
+  color: #DFDFDF;
+}
+
+body.body--light {
+  --q-color-accent: #e6e6e6;
+}
+
+body.body--dark {
+  --q-color-primary: #e2e2e2;
+  --q-color-accent: #252525;
+  --q-color-secondary: #72767D;
+}
