@@ -26,6 +26,6 @@
     "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "socket.io": "^3.0.4",
-    "transformice.js": "^1.0.0-beta.0"
+    "transformice.js": "^1.0.0-beta.1"
   }
 }
